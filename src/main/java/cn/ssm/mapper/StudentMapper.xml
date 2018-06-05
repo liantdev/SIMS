@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.ssm.mapper.StudentMapper">
+
+  <select id="getAllStudent" resultType="cn.ssm.po.Student">
+  	SELECT sid,sname,sgender,sage,smajor FROM student 
+  </select>
+  
+  <select id="getStudentById" resultType="cn.ssm.po.Student" parameterType="java.lang.String">
+  	SELECT sid,sname,sgender,sage,smajor FROM student WHERE sid=#{sid}
+  </select>
+  
+  <delete id="deleteStudentById" parameterType="String">
+  	DELETE FROM student WHERE sid=#{sid}
+  </delete>
+  
+  <update id="updateStudent" parameterType="cn.ssm.po.Student">
+  	UPDATE student SET sname=#{sname},sgender=#{sgender},sage=#{sage},smajor=#{smajor} WHERE sid=#{sid}
+  </update>
+  
+  <insert id="addStudent" parameterType="cn.ssm.po.Student">
+  	INSERT INTO student VALUES(#{sid}, #{sname}, #{sgender}, #{sage}, #{smajor})
+  </insert>
+  
+</mapper>
