@@ -14,10 +14,10 @@
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
 
         
-   	<!-- 加载db.properties文件 -->     
+    <!-- 加载db.properties文件 -->     
     <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
     
-    <!-- 配置dbcp线程池 -->
+    <!-- 配置dbcp连接池 -->
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
 		<property name="driverClassName" value="${jdbc.mysql.driver}"></property>
 		<property name="url" value="${jdbc.mysql.url}"></property>
